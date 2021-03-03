@@ -17,7 +17,7 @@ function repositoriesList(response){
         const repos = document.querySelector('.repos');
         const nameRepo = response[i].name;
         const imgUrl = response[i].language;
-        const linkRepo = response[i].html_url
+        const linkRepo = response[i].html_url;
 
         const repo = `
             <div class="repo">
