@@ -6,6 +6,7 @@
     --default-font: #EAEBED;
     --default-border: #FFFFFF;
     --default-primary-hover: #511eb6;
+    --error-color: #680c07;
 }
 
 * {
@@ -70,6 +71,12 @@ button:hover {
     padding: 8px;
 }
 
+.user img#errorPhoto {
+    width: 400px;
+    border: none;
+    border-radius: 0;
+}
+
 .user img {
     border-radius: 50%;
     width: 260px;
@@ -77,10 +84,20 @@ button:hover {
     border: 5px solid var(--default-border);
 }
 
+
 .user h1{
     font-size: 36px;
     color: var(--default-font);
     background-color: var(--default-primary);
+    border-radius: 16px;
+    margin-top: 32px;
+    padding: 8px 24px;
+}
+
+.user h1#error{
+    font-size: 50px;
+    color: var(--default-font);
+    background-color: var(--error-color);
     border-radius: 16px;
     margin-top: 32px;
     padding: 8px 24px;

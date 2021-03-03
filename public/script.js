@@ -1,10 +1,46 @@
-function searchRepositories() {
-    const user = document.getElementById('busca').value;
-    const url = `https://api.github.com/users/${user}/repos?page=1&per_page=10000`;
+function catchUser(user){
+    user = document.getElementById('busca').value;
+    return user;
+}
 
-    fetch(url).then(response=> {
+function verifyIfUserExists(){
+    const user = catchUser();
+    const urlVerifier = `https://api.github.com/users/${user}`
+
+    fetch(urlVerifier).then(response => {
         return response.json();
-    }).then(response=> {
+    }).then(response => {
+        const login = response.login;
+        if (login) {
+            searchRepositories();
+        } else {
+            userDontExist();
+        }
+    })
+}
+
+function userDontExist(){
+    clearScreen();
+    const dontExist = document.querySelector('.user');
+    dontExist.innerHTML = `
+            <div class="user">
+                <img id="errorPhoto" src="./images/dontExist.png">
+                <h1 id="error">This user does not exist!</h1>
+                <p style="font-size: 32px;">Please, try another user and search again</p>
+            </div>
+        `
+
+        repos.innerHTML += repo
+
+}
+
+function searchRepositories(){
+    const user = catchUser();
+    const url = `https://api.github.com/users/${user}/repos?page=1&per_page=1000`;
+
+    fetch(url).then(response => {
+        return response.json();
+    }).then(response => {
         clearScreen();
         renderUserInfo();
         repositoriesList(response);
@@ -33,10 +69,10 @@ function repositoriesList(response){
     }
 }
 
-function renderUserInfo(response){
-    const user = document.getElementById('busca').value;
+function renderUserInfo(){
+    const user = catchUser();
 
-    fetch(`https://api.github.com/users/${user}/repos?page=1&per_page=10000`).then(response => {
+    fetch(`https://api.github.com/users/${user}/repos?page=1&per_page=1000`).then(response => {
         return response.json();
     }).then(response => {
         const content = document.querySelector('.user')
