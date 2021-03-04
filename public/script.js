@@ -1,5 +1,5 @@
-function catchUser(user){
-    user = document.getElementById('busca').value;
+function catchUser(){
+    const user = document.getElementById('busca').value;
     return user;
 }
 
@@ -23,7 +23,7 @@ function userDontExist(){
     clearScreen();
     const dontExist = document.querySelector('.user');
     dontExist.innerHTML = `
-            <div class="user">
+            <div class="user-error">
                 <img id="errorPhoto" src="./images/dontExist.png">
                 <h1 id="error">This user does not exist!</h1>
                 <p style="font-size: 32px;">Please, try another user and search again</p>

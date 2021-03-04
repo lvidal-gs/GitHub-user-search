@@ -6,7 +6,7 @@
     --default-font: #EAEBED;
     --default-border: #FFFFFF;
     --default-primary-hover: #511eb6;
-    --error-color: #680c07;
+    --error-color: #e2574c;
 }
 
 * {
@@ -69,12 +69,17 @@ button:hover {
     align-items: center;
     justify-content: center;
     padding: 8px;
+    margin-top: 20px;
 }
 
-.user img#errorPhoto {
-    width: 400px;
-    border: none;
-    border-radius: 0;
+.user-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin-top: 20px;
+    min-height: 70vh;
 }
 
 .user img {
@@ -84,6 +89,18 @@ button:hover {
     border: 5px solid var(--default-border);
 }
 
+.user img#octocat {
+    border: none;
+    width: 20%;
+    margin-top: 100px;
+
+}
+
+.user-error img#errorPhoto {
+    width: 60%;
+    border: none;
+    border-radius: 0;
+}
 
 .user h1{
     font-size: 36px;
@@ -94,10 +111,19 @@ button:hover {
     padding: 8px 24px;
 }
 
-.user h1#error{
+.user-error h1#error{
     font-size: 50px;
     color: var(--default-font);
     background-color: var(--error-color);
+    border-radius: 16px;
+    margin-top: 32px;
+    padding: 8px 24px;
+}
+
+.user h1#welcome{
+    font-size: 50px;
+    background-color: var(--default-font);
+    color: var(--default-primary);
     border-radius: 16px;
     margin-top: 32px;
     padding: 8px 24px;
@@ -148,4 +174,24 @@ button:hover {
 .repo a:hover{
     background-color: var(--default-primary-hover);
     transform: scale(1.1);
+}
+
+.user .myData {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.user .myData a {
+    text-decoration: none;
+    padding: 8px 8px;
+    border-radius: 16px;
+    color: var(--default-font);
+}
+
+.user .myData a:hover {
+    background-color: var(--default-font);
+    color: #511eb6;
+    text-decoration: underline;
+    transition: 1s;
 }
