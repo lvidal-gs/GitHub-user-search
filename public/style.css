@@ -1,225 +1,277 @@
-@import  url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 
-:root{
-    --default-primary: #6633CC;
-    --default-background: #04080F;
-    --default-font: #EAEBED;
-    --default-border: #FFFFFF;
-    --default-primary-hover: #511eb6;
-    --error-color: #e2574c;
+:root {
+  --default-primary: #6633cc;
+  --default-background: #04080f;
+  --default-font: #eaebed;
+  --default-border: #ffffff;
+  --default-primary-hover: #511eb6;
+  --error-color: #e2574c;
 }
-
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: none;
-    font-family: 'Titillium Web', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Titillium Web", sans-serif;
 }
 
-body{
-    animation-name: gradiente;
-    animation-duration: 5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    background: linear-gradient(45deg,#b89cf0, #6633CC, #180a36);
-    background-size: 600% 600%;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
-
-@keyframes gradiente {
-    from /*INICIO ANIMAÇÃO*/{
-        background-position: 0 50%;
-    }
-
-    to {
-        background-position: 100% 50%;
-    }
+body {
+  animation-name: gradiente;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  background: linear-gradient(45deg, #b89cf0, #6633cc, #180a36);
+  background-size: 600% 600%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-width: 400px;
 }
 
 header {
-    background-color: var(--default-background);
-    padding: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 10vh;
-    box-sizing: border-box;
-    color: var(--default-font);
+  background-color: var(--default-background);
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  box-sizing: border-box;
+  color: var(--default-font);
 }
 
 header input {
-    padding: 6px;
+  padding: 6px;
 }
 
 header label {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 button {
-    padding: 8px 16px;
-    background-color: var(--default-primary);
-    color: var(--default-font);
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
+  padding: 8px 16px;
+  background-color: var(--default-primary);
+  color: var(--default-font);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
 }
 
 button:active {
-    transform: translateY(3px);
+  transform: translateY(3px);
 }
 
 button:hover {
-    background-color: var(--default-primary-hover);
+  background-color: var(--default-primary-hover);
 }
 
 .user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 20px;
 }
 
 .user-error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    margin-top: 20px;
-    min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin-top: 20px;
+  min-height: 70vh;
 }
 
 .user img {
-    border-radius: 50%;
-    width: 260px;
-    padding: 5px;
-    border: 5px solid var(--default-border);
+  border-radius: 50%;
+  width: 260px;
+  padding: 5px;
+  border: 5px solid var(--default-border);
+  cursor: pointer;
+  transition: 1s;
+  transform: scale(0.85);
+}
+
+.user img:hover {
+  transition: 1s;
+  transform: scale(1.15);
 }
 
 .user img#octocat {
-    border: none;
-    width: 20%;
-    margin-top: 100px;
+  border: none;
+  min-width: 350px;
+  max-width: 350px;
+  width: 40%;
+  margin-top: 100px;
+  animation: scale-up 2s ease-out infinite alternate;
+}
 
+@media (min-width: 1000px) {
+  .user img#octocat {
+    border: none;
+    min-width: 300px;
+    max-width: 450px;
+    width: 35%;
+    margin-top: 100px;
+    animation: is-upping-scale 5s ease infinite alternate;
+  }
 }
 
 .user-error img#errorPhoto {
-    width: 60%;
-    border: none;
-    border-radius: 0;
+  width: 60%;
+  border: none;
+  border-radius: 0;
 }
 
-.user h1{
-    font-size: 36px;
-    color: var(--default-font);
-    background-color: var(--default-primary);
-    border-radius: 16px;
-    margin-top: 32px;
-    padding: 8px 24px;
+.user h1 {
+  font-size: 36px;
+  color: var(--default-font);
+  background-color: var(--default-primary);
+  border-radius: 16px;
+  margin-top: 32px;
+  padding: 8px 24px;
 }
 
-.user-error h1#error{
-    font-size: 50px;
-    color: var(--default-font);
-    background-color: var(--error-color);
-    border-radius: 16px;
-    margin-top: 32px;
-    padding: 8px 24px;
+.user-error h1#error {
+  font-size: 50px;
+  color: var(--default-font);
+  background-color: var(--error-color);
+  border-radius: 16px;
+  margin-top: 32px;
+  padding: 8px 24px;
 }
 
-.user h1#welcome{
-    font-size: 50px;
+.user h1#welcome {
+  font-size: 150%;
+  background-color: var(--default-font);
+  text-align: center;
+  color: var(--default-primary);
+  border-radius: 16px;
+  margin-top: 32px;
+  padding: 8px 24px;
+}
+
+@media (min-width: 700px) {
+  .user h1#welcome {
+    font-size: 200%;
     background-color: var(--default-font);
     color: var(--default-primary);
     border-radius: 16px;
     margin-top: 32px;
     padding: 8px 24px;
+    text-align: center;
+  }
 }
-
-.user p{
-    font-size: 20px;
-    color: var(--default-font);
-    padding: 8px 24px;
-    font-weight: bold;
+.user p {
+  font-size: 20px;
+  color: var(--default-font);
+  padding: 8px 24px;
+  font-weight: bold;
 }
 
 .repos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .repo {
-    background-color: var(--default-background);
-    width: 400px;
-    height: 150px;
-    padding: 16px 32px;
-    border-radius: 16px;
-    color: var(--default-font);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 8px;
+  background-color: var(--default-background);
+  width: 400px;
+  height: 150px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  color: var(--default-font);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px;
 }
 
 .repo div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .repo a {
-    text-decoration: none;
-    color: var(--default-font);
-    background-color: var(--default-primary);
-    padding: 6px;
-    border-radius: 10px;
-    margin-top: 5px;
-    transition: all 0.4s ease;
+  text-decoration: none;
+  color: var(--default-font);
+  background-color: var(--default-primary);
+  padding: 6px;
+  border-radius: 10px;
+  margin-top: 5px;
+  transition: all 0.4s ease;
 }
 
-.repo a:hover{
-    background-color: var(--default-primary-hover);
-    animation: buttonFadeOut 1.5s cubic-bezier(.74,.24,.78,.94) infinite alternate;
+.repo a:hover {
+  background-color: var(--default-primary-hover);
+  animation: buttonFadeOut 1.5s cubic-bezier(0.74, 0.24, 0.78, 0.94) infinite
+    alternate;
 }
 
 .user .myData {
-    display: flex;
-    align-items: center;
-    justify-items: center;
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
 .user .myData a {
-    text-decoration: none;
-    padding: 8px 8px;
-    border-radius: 16px;
-    color: var(--default-font);
+  text-decoration: none;
+  padding: 8px 8px;
+  border-radius: 16px;
+  color: var(--default-font);
 }
 
 .user .myData a:hover {
-    background-color: var(--default-font);
-    color: #511eb6;
-    text-decoration: underline;
-    transition: 1s;
+  background-color: var(--default-font);
+  color: #511eb6;
+  text-decoration: underline;
+  transition: 1s;
 }
 
-@keyframes buttonFadeOut{
-    from {
-        transform: scale(0.95);
-    }
+@keyframes buttonFadeOut {
+  from {
+    transform: scale(0.95);
+  }
 
-    to {
-        transform: scale(1.1);
-    }
+  to {
+    transform: scale(1.1);
+  }
 }
 
-  
+@keyframes gradiente {
+  from /*INICIO ANIMAÇÃO*/ {
+    background-position: 0 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes is-upping-scale {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1.05) translateY(-100px);
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
